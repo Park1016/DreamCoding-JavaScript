@@ -35,7 +35,11 @@ for(const span of spanAll){
 
 function onClick(e){
     if(e.target == Sb100){
-        window.scrollBy(0, 100);
+        window.scrollBy({
+            top: 100,
+            left: 0,
+            behavior: 'smooth'
+          });
     }
     else if (e.target == St100){
         window.scrollTo(0, 100);
