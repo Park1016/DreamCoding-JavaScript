@@ -1,0 +1,23 @@
+body {
+  height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline;
+}
+
+.container {
+  background-color: plum;
+  padding: 1rem 1rem;
+  margin: 3rem 3rem;
+  display: inline-block;
+}
