@@ -36,3 +36,21 @@ span {
   background-color: greenyellow;
   cursor: pointer;
 }
+
+.buttons {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: row;
+}
+
+button {
+  margin-left: 0.5rem;
+  width: 5rem;
+  height: 3rem;
+  background-color: pink;
+  border-radius: 10%;
+  cursor: pointer;
+  outline: 0;
+}

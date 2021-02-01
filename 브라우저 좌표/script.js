@@ -1,4 +1,9 @@
 const spanAll = document.querySelectorAll("span");
+const buttons = document.querySelector(".buttons");
+const Sb100 = document.querySelector(".Sb100");
+const St100 = document.querySelector(".St100");
+const SitD = document.querySelector(".SitD");
+const diffrent = document.querySelector(".diffrent");
 let current;
 
 for(const span of spanAll){
@@ -27,3 +32,17 @@ for(const span of spanAll){
         current = span;  
     })
 }
+
+function onClick(e){
+    if(e.target == Sb100){
+        window.scrollBy(0, 100);
+    }
+    else if (e.target == St100){
+        window.scrollTo(0, 100);
+    }
+    else {
+        diffrent.scrollIntoView();
+    }
+}
+
+buttons.addEventListener("click", onClick)
