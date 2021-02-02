@@ -1,11 +1,12 @@
 * {
   margin: 0;
   padding: 0;
+  border: 0;
 }
 
 html {
   background-color: black;
-  cursor: url(target.png), pointer;
+  cursor: url(target.png) 32 0, pointer;
 }
 
 .coor {
