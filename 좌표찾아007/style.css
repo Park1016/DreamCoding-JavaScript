@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: black;
+  cursor: url(target.png), pointer;
+}
+
+.coor {
+  position: relative;
+  width: 5rem;
+  height: 2rem;
+  color: white;
+  background-color: black;
+}
+
+.lineX {
+  position: relative;
+  background-color: white;
+  width: 100vw;
+  height: 2px;
+  z-index: 100;
+}
+
+.lineY {
+  position: relative;
+  background-color: white;
+  width: 2px;
+  height: 100vh;
+}
