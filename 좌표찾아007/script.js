@@ -1,14 +1,17 @@
-let coor = document.querySelector(".coor");
-let lineX = document.querySelector(".lineX");
-let lineY = document.querySelector(".lineY");
+const coor = document.querySelector(".coor");
+const lineX = document.querySelector(".lineX");
+const lineY = document.querySelector(".lineY");
+const target = document.querySelector(".target");
 
 window.addEventListener("mousemove", (e)=>{
-    coor.innerHTML = `${e.pageX}, ${e.pageY}`;
-    coor.style.left = `${e.pageX+25}px`;
-    coor.style.top = `${e.pageY+50}px`;
-    lineX.style.left = "0px";
-    lineX.style.top = `${e.pageY}px`;
-    lineY.style.top = "0px";
-    lineY.style.left = `${e.pageX}px`;
+    const x = e.pageX;
+    const y = e.pageY;
+    coor.innerHTML = `${x}px, ${y}px`;
+    target.style.left= `${x}px`
+    target.style.top= `${y}px`
+    coor.style.left = `${x}px`;
+    coor.style.top = `${y}px`;
+    lineX.style.top = `${y}px`;
+    lineY.style.left = `${x}px`;
 })
 
