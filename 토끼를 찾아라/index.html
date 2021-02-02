@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding:0;
+            margin:0;
+        }
+
+        body {
+            background-color:black;
+        }
+
+        .images {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        image {
+            width:15rem;
+            height:15rem;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        button {
+            background-color:#FF573A;
+            color : white;
+            outline: none;
+            margin: 1rem;
+            width:12rem;
+            height:3rem;
+            font-size: 1.5rem;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="button">
+        <button>Find a rabbit🐇</button>
+    </div>
+    <div class="images">
+        <image src="img/carrot.png"></image>
+        <image src="img/carrot.png"></image>
+        <image src="img/carrot.png"></image>
+        <image src="img/carrot.png"></image>
+        <image src="img/carrot.png"></image>
+        <image src="img/carrot.png"></image>
+        <image src="img/carrot.png"></image>
+        <image src="img/carrot.png"></image>
+        <image src="img/carrot.png"></image>
+        <image src="img/carrot.png"></image>
+        <image src="img/carrot.png"></image>
+        <image src="img/carrot.png"></image>
+        <image class="rabbit" src="img/rabbit.png"></image>
+        <image src="img/carrot.png"></image>
+        <image src="img/carrot.png"></image>
+        <image src="img/carrot.png"></image>
+        <image src="img/carrot.png"></image>
+    </div>
+    <script>
+        const button = document.querySelector("button");
+        const rabbit = document.querySelector(".rabbit");
+
+        button.addEventListener("click", ()=>{
+            rabbit.scrollIntoView();
+        })
+    </script>
+</body>
+</html>
