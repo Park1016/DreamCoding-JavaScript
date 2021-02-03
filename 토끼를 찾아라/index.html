@@ -12,30 +12,22 @@
 
         body {
             background-color:black;
+            text-align: center;
         }
 
-        .images {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        image {
+        img {
+            display:block;
+            margin:auto;
             width:15rem;
             height:15rem;
+            margin-bottom : 1rem;
         }
-
-        .button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
+       
         button {
             background-color:#FF573A;
             color : white;
             outline: none;
-            margin: 1rem;
+            margin: 1rem 0;
             width:12rem;
             height:3rem;
             font-size: 1.5rem;
@@ -44,35 +36,32 @@
     </style>
 </head>
 <body>
-    <div class="button">
-        <button>Find a rabbit🐇</button>
-    </div>
-    <div class="images">
-        <image src="img/carrot.png"></image>
-        <image src="img/carrot.png"></image>
-        <image src="img/carrot.png"></image>
-        <image src="img/carrot.png"></image>
-        <image src="img/carrot.png"></image>
-        <image src="img/carrot.png"></image>
-        <image src="img/carrot.png"></image>
-        <image src="img/carrot.png"></image>
-        <image src="img/carrot.png"></image>
-        <image src="img/carrot.png"></image>
-        <image src="img/carrot.png"></image>
-        <image src="img/carrot.png"></image>
-        <image class="rabbit" src="img/rabbit.png"></image>
-        <image src="img/carrot.png"></image>
-        <image src="img/carrot.png"></image>
-        <image src="img/carrot.png"></image>
-        <image src="img/carrot.png"></image>
-    </div>
+    <button>Find a rabbit🐇</button>
+    <image src="img/carrot.png"></image>
+    <image src="img/carrot.png"></image>
+    <image src="img/carrot.png"></image>
+    <image src="img/carrot.png"></image>
+    <image src="img/carrot.png"></image>
+    <image src="img/carrot.png"></image>
+    <image src="img/carrot.png"></image>
+    <image src="img/carrot.png"></image>
+    <image src="img/carrot.png"></image>
+    <image src="img/carrot.png"></image>
+    <image src="img/carrot.png"></image>
+    <image src="img/carrot.png"></image>
+    <image id="rabbit" src="img/rabbit.png"></image>
+    <image src="img/carrot.png"></image>
+    <image src="img/carrot.png"></image>
+    <image src="img/carrot.png"></image>
+    <image src="img/carrot.png"></image>
+    
     <script>
-        const button = document.querySelector("button");
-        const rabbit = document.querySelector(".rabbit");
+    const button = document.querySelector("button");
+    const rabbit = document.querySelector("#rabbit");
 
-        button.addEventListener("click", ()=>{
-            rabbit.scrollIntoView();
-        })
+    button.addEventListener("click", ()=>{
+        rabbit.scrollIntoView({behavior:'smooth', block:"center"});
+    })
     </script>
 </body>
 </html>
