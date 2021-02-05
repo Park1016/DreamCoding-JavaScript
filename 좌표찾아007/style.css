@@ -14,14 +14,15 @@ html {
   height: 2rem;
   color: white;
   background-color: black;
-  transform: translate(20%, 40%);
+  /* transform: translate(20%, 40%); */
   text-align: left;
+  margin: 1.5rem;
 }
 
 .lineX {
   position: absolute;
   background-color: white;
-  top: 50%;
+  /* top: 50%; */
   width: 100vw;
   height: 2px;
 }
@@ -29,14 +30,14 @@ html {
 .lineY {
   position: absolute;
   background-color: white;
-  left: 50%;
+  /* left: 50%; */
   width: 2px;
   height: 100vh;
 }
 
 .target {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  /* top: 50%;
+  left: 50%; */
   transform: translate(-50%, -50%);
 }
