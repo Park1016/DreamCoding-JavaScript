@@ -2,7 +2,6 @@
 const input = document.querySelector("input");
 const placeholder = input.placeholder;
 const trashBtn = document.querySelector(".fa-trash-alt");
-let id=0;
 
 function addListHandler(id){
     const inputValue = input.value;
