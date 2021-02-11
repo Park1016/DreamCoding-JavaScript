@@ -46,11 +46,11 @@ function editHandler(e){
         if(e.key !== "Enter"){
             return;
         }else{
-            // if(typeof editInput.value == "undefined" || editInput.value == null || editInput.value == ""){
-            //     editInput.classList.add("change");
-            //     editInput.placeholder = "수정할 목록을 입력해주세요";
-            //     return;
-            // }
+            if(typeof editInput.value == "undefined" || editInput.value == null || editInput.value == ""){
+                editInput.classList.add("change");
+                editInput.placeholder = "수정할 목록을 입력해주세요";
+                return;
+            }
             li.childNodes[1].style.display = "";
             li.childNodes[2].style.display = "";
             const editValue = editInput.value;
