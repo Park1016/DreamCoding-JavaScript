@@ -24,10 +24,10 @@ function addListHandler(id){
 function deleteHandler(e){
     const li = e.target.parentNode;
     li.remove();
-    const cleanToDos = LIST.filter(function(item) {
+    const cleanList = LIST.filter(function(item) {
         return item.id !== parseInt(li.id);
     })
-    LIST = cleanToDos;
+    LIST = cleanList;
     saveLocalStorage();
 }
 
