@@ -23,6 +23,7 @@ body {
   border-radius: 8%;
   box-shadow: 0.3rem 0.3rem 1rem #c7c5c7;
   font-family: "Roboto Slab", serif;
+  font-size: 1rem;
   scroll-behavior: smooth;
 }
 
@@ -114,6 +115,12 @@ span {
   cursor: pointer;
 }
 
+.fa-edit:hover,
+.fa-trash-alt:hover,
+.fa-plus-circle:hover {
+  transform: translateY(-0.1rem);
+}
+
 .change::placeholder {
   color: red;
 }
@@ -132,4 +139,11 @@ span {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #ecc6dc;
+}
+
+.editInput {
+  width: 17.6rem;
+  height: 22px;
+  padding: 0.3rem 0 0.2rem 0;
+  background-color: #f7edf3;
 }
