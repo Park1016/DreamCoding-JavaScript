@@ -113,7 +113,7 @@ document.addEventListener("click", (e)=>{
         id = parseInt(ul.lastChild.previousSibling.id)+1;
     }else if(e.target.classList.contains("fa-plus-circle")){
         addListHandler(id);
-        ul.lastChild.previousSibling.id+1;
+        id = parseInt(ul.lastChild.previousSibling.id)+1;
     }else if(e.target.classList.contains("fa-edit")){
         editHandler(e);
     }
