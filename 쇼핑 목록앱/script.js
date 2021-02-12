@@ -4,6 +4,7 @@ const placeholder = input.placeholder;
 const trashBtn = document.querySelector(".fa-trash-alt");
 
 function addListHandler(id){
+    //localStorage.clear();
     const inputValue = input.value;
     if(typeof inputValue == "undefined" || inputValue == null || inputValue == ""){
         input.classList.add("change");
@@ -22,13 +23,27 @@ function addListHandler(id){
 }
 
 function deleteHandler(e){
+    const AllList = document.querySelectorAll("li");
     const li = e.target.parentNode;
+    const lis = li.parentNode;
+    let id = li.id;
     li.remove();
     const cleanList = LIST.filter(function(item) {
-        return item.id !== parseInt(li.id);
+        return item.id !== parseInt(id);
+    })
+    LIST.forEach((item)=>{
+        if(item.id > id){
+            return item.id = item.id-1;
+        }
     })
     LIST = cleanList;
     saveLocalStorage();
+
+    Array.from(AllList).forEach((item)=>{
+        if(item.id > id){
+            return item.id = item.id-1;
+        }
+    })
 }
 
 function editHandler(e){
@@ -84,8 +99,8 @@ input.addEventListener("keydown", (e)=>{
     // e.preventDefault();
     if(e.key === "Enter"){
         addListHandler(id);
-        id++;
-        //localStorage.clear();
+        console.log(ul.lastChild.previousSibling.id);
+        id = parseInt(ul.lastChild.previousSibling.id)+1;
     } else {
         return;
     }
@@ -95,9 +110,10 @@ document.addEventListener("click", (e)=>{
     e.preventDefault();
     if(e.target.classList.contains("fa-trash-alt")){
         deleteHandler(e);
+        id = parseInt(ul.lastChild.previousSibling.id)+1;
     }else if(e.target.classList.contains("fa-plus-circle")){
         addListHandler(id);
-        id++
+        ul.lastChild.previousSibling.id+1;
     }else if(e.target.classList.contains("fa-edit")){
         editHandler(e);
     }
