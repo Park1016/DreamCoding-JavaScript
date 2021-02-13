@@ -19,13 +19,14 @@ function addListHandler(id){
     LIST.push({text: inputValue, id: id});
     saveLocalStorage();
     ul.insertAdjacentHTML("beforeend", listText);
-    input.value = ""
+    ul.lastChild.previousSibling.scrollIntoView({behavior: "smooth", block: "center"});
+    input.value = "";
+    input.focus();
 }
 
 function deleteHandler(e){
     const AllList = document.querySelectorAll("li");
     const li = e.target.parentNode;
-    const lis = li.parentNode;
     let id = li.id;
     li.remove();
     const cleanList = LIST.filter(function(item) {
@@ -57,6 +58,7 @@ function editHandler(e){
     editInput.classList.add("editInput");
     editInput.value = listText;
     li.replaceChild(editInput, list);
+    editInput.focus();
     editInput.addEventListener("keydown", (e)=>{
         if(e.key !== "Enter"){
             return;
@@ -71,6 +73,7 @@ function editHandler(e){
             const editValue = editInput.value;
             list.innerText = editValue;
             li.replaceChild(list, editInput);
+            input.focus();
             LIST[id].text = editValue;
             saveLocalStorage();
         }
@@ -99,7 +102,6 @@ input.addEventListener("keydown", (e)=>{
     // e.preventDefault();
     if(e.key === "Enter"){
         addListHandler(id);
-        console.log(ul.lastChild.previousSibling.id);
         id = parseInt(ul.lastChild.previousSibling.id)+1;
     } else {
         return;
