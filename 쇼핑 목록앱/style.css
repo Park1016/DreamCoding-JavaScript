@@ -88,7 +88,7 @@ ul {
   width: 80%;
   position: relative;
   list-style: none;
-  overflow-y: scroll;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   word-break: break-word;
@@ -113,12 +113,24 @@ span {
 .fa-trash-alt {
   margin-right: 0.5rem;
   cursor: pointer;
+  transition: color 0.2s;
 }
 
 .fa-edit:hover,
-.fa-trash-alt:hover,
-.fa-plus-circle:hover {
+.fa-trash-alt:hover {
   transform: translateY(-0.1rem);
+}
+
+.fa-edit:hover {
+  color: #7eb5ee;
+}
+
+.fa-trash-alt:hover {
+  color: #ec96c2;
+}
+
+.fa-plus-circle:hover {
+  transform: scale(1.1);
 }
 
 .change::placeholder {
