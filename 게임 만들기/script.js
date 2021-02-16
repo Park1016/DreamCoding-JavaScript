@@ -8,12 +8,19 @@ const result = document.querySelector(".resultBox");
 const resultBox = document.querySelector(".resultBox");
 const replayBtn = document.querySelector(".replayBtn");
 const count = document.querySelector(".count");
+// 오디오
+const bgAudio = new Audio("sound/bg.mp3");
+const bugAudio = new Audio("sound/bug_pull.mp3");
+const carrotAudio = new Audio("sound/carrot_pull.mp3");
+const winAudio = new Audio("sound/game_win.mp3");
+const alertAudio = new Audio("sound/alert.wav");
 
 // 초기 설정
 timer.innerHTML = `00:10`;
 count.innerHTML = `0`;
 let number = 10;
 let time;
+bgAudio.play();
 
 // 카운트 기능
 function onTime(){
@@ -43,6 +50,7 @@ function onPlay(){
 
     // 정지 버튼 클릭 시 실행
     pauseBtn.addEventListener("click", ()=>{
+        bugAudio.play();
         playBtnBox.style.visibility = "hidden";
         result.style.display = "block";
         pauseBtn.style.color = "transParent";
@@ -109,6 +117,7 @@ function onCarrotClick(){
     number = number-1;
     count.innerHTML = `${number}`;
     if(number == 0){
+        winAudio.play();
         result.style.display = "block";
         result.childNodes[1].childNodes[3].innerHTML="YOU WON 🎉"
         clearInterval(time);
@@ -122,8 +131,10 @@ document.addEventListener("click", (e)=>{
     if(e.target.classList.contains("replayBtn")){
         location = location.pathname;
     }else if(e.target.classList.contains("bugImg")){
+        bugAudio.play();
         onLose();
     }else if(e.target.classList.contains("carrotImg")){
+        carrotAudio.play();
         e.target.remove();
         onCarrotClick();
     }
