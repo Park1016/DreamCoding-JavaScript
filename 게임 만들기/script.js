@@ -3,20 +3,19 @@ const pauseBtn = document.querySelector(".fa-square");
 const playBtnBox = document.querySelector(".playBtn");
 const timer = document.querySelector(".timer");
 const img = document.querySelector(".img");
-// const bugImg = document.querySelector(".bugImgBox");
-// const carrotImg = document.querySelector(".carrotImgBox");
 const section2 = document.querySelector(".section2");
 const result = document.querySelector(".resultBox");
 const resultBox = document.querySelector(".resultBox");
 const replayBtn = document.querySelector(".replayBtn");
 const count = document.querySelector(".count");
 
-
+// 초기 설정
 timer.innerHTML = `00:10`;
 count.innerHTML = `0`;
 let number = 10;
 let time;
 
+// 카운트 기능
 class countTime {
     onTime(){
         playBtn.style.display = "none";
@@ -35,6 +34,7 @@ class countTime {
 
 const counter = new countTime();
 
+// play 버튼 클릭 시 실행
 function onPlay(){
     counter.onTime();
     count.innerHTML = `10`;
@@ -45,13 +45,13 @@ function onPlay(){
     
     let num = 10;
 
+    // 정지 버튼 클릭 시 실행
     pauseBtn.addEventListener("click", ()=>{
         playBtnBox.style.visibility = "hidden";
         result.style.display = "block";
         pauseBtn.style.color = "transParent";
         playBtn.style.display = "block";
         clearInterval(time);
-        //location = location.pathname;
     });
 }
 
@@ -102,11 +102,13 @@ function setCarrotImg() {
     carrotImgBox.style.transform = `translateX(25px)`;
 }
 
+// 벌레 클릭, 시간 초과 시 실행
 function onLose(){
     result.style.display = "block";
     result.childNodes[1].childNodes[3].innerHTML="YOU LOST 💩"
 }
 
+// 당근 클릭 시 실행
 function onCarrotClick(){
     number = number-1;
     count.innerHTML = `${number}`;
@@ -122,8 +124,6 @@ playBtn.addEventListener("click", onPlay);
 
 document.addEventListener("click", (e)=>{
     if(e.target.classList.contains("replayBtn")){
-        // result.style.display = "none";
-        // playBtnBox.style.visibility = "visible";
         location = location.pathname;
     }else if(e.target.classList.contains("bugImg")){
         onLose();
