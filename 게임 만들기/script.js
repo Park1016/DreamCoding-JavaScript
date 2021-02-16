@@ -46,11 +46,9 @@ function onPlay(){
         setCarrotImg()*i;
     }
     
-    let num = 10;
-
     // 정지 버튼 클릭 시 실행
     pauseBtn.addEventListener("click", ()=>{
-        bugAudio.play();
+        alertAudio.play();
         playBtnBox.style.visibility = "hidden";
         result.style.display = "block";
         pauseBtn.style.color = "transParent";
