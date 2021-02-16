@@ -9,13 +9,6 @@ const targetRectHeight = targetRect.height / 2;
 window.addEventListener("mousemove", (e)=>{
     const x = e.pageX;
     const y = e.pageY;
-    // coor.innerHTML = `${x}px, ${y}px`;
-    // target.style.left= `${x}px`
-    // target.style.top= `${y}px`
-    // coor.style.left = `${x}px`;
-    // coor.style.top = `${y}px`;
-    // lineX.style.top = `${y}px`;
-    // lineY.style.left = `${x}px`;
 
     coor.innerHTML = `${x}px, ${y}px`;
     target.style.transform = `translate(${x - targetRectWidth}px, ${y - targetRectHeight}px)`;
