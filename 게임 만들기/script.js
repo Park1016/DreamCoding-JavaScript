@@ -9,49 +9,48 @@ const section2 = document.querySelector(".section2");
 const result = document.querySelector(".resultBox");
 const resultBox = document.querySelector(".resultBox");
 const replayBtn = document.querySelector(".replayBtn");
+const count = document.querySelector(".count");
 
 
 timer.innerHTML = `00:10`;
+count.innerHTML = `0`;
+let number = 10;
+let time;
 
 class countTime {
     onTime(){
         playBtn.style.display = "none";
         pauseBtn.style.color = "black";
         let num = 10;
-        let time = setInterval(() =>{
+        time = setInterval(() =>{
             num = num - 1;
             timer.innerHTML = `00:0${num}`;
+            if(num == 0){
+                onLose();
+            }
         }, 1000);
         setTimeout(()=>{clearInterval(time)}, 10000);
     }
 }
 
-const count = new countTime();
+const counter = new countTime();
 
 function onPlay(){
-    // playBtn.style.display = "none";
-    // pauseBtn.style.color = "black";
-    // let num = 10;
-    // let time = setInterval(() =>{
-    //     num = num - 1;
-    //     timer.innerHTML = `00:0${num}`;
-    // }, 1000);
-    // setTimeout(()=>{clearInterval(time)}, 10000);
-    count.onTime();
+    counter.onTime();
+    count.innerHTML = `10`;
     for(i=0; i<10; i++){
         setButImg()*i;
         setCarrotImg()*i;
     }
     
     let num = 10;
-    console.log(count.onTime.time);
 
     pauseBtn.addEventListener("click", ()=>{
         playBtnBox.style.visibility = "hidden";
         result.style.display = "block";
         pauseBtn.style.color = "transParent";
         playBtn.style.display = "block";
-        clearInterval(count.onTime.time);
+        clearInterval(time);
         //location = location.pathname;
     });
 }
@@ -103,9 +102,19 @@ function setCarrotImg() {
     carrotImgBox.style.transform = `translateX(25px)`;
 }
 
-function onBugClick(){
+function onLose(){
     result.style.display = "block";
     result.childNodes[1].childNodes[3].innerHTML="YOU LOST 💩"
+}
+
+function onCarrotClick(){
+    number = number-1;
+    count.innerHTML = `${number}`;
+    if(number == 0){
+        result.style.display = "block";
+        result.childNodes[1].childNodes[3].innerHTML="YOU WON 🎉"
+        clearInterval(time);
+    }
 }
 
 // addEventListener
@@ -117,8 +126,9 @@ document.addEventListener("click", (e)=>{
         // playBtnBox.style.visibility = "visible";
         location = location.pathname;
     }else if(e.target.classList.contains("bugImg")){
-        onBugClick();
+        onLose();
     }else if(e.target.classList.contains("carrotImg")){
-        console.log("carrot");
+        e.target.remove();
+        onCarrotClick();
     }
 })
