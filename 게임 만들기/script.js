@@ -16,27 +16,23 @@ let number = 10;
 let time;
 
 // 카운트 기능
-class countTime {
-    onTime(){
-        playBtn.style.display = "none";
-        pauseBtn.style.color = "black";
-        let num = 10;
-        time = setInterval(() =>{
-            num = num - 1;
-            timer.innerHTML = `00:0${num}`;
-            if(num == 0){
-                onLose();
-            }
-        }, 1000);
-        setTimeout(()=>{clearInterval(time)}, 10000);
-    }
+function onTime(){
+    playBtn.style.display = "none";
+    pauseBtn.style.color = "black";
+    let num = 10;
+    time = setInterval(() =>{
+        num = num - 1;
+        timer.innerHTML = `00:0${num}`;
+        if(num == 0){
+            onLose();
+        }
+    }, 1000);
+    setTimeout(()=>{clearInterval(time)}, 10000);
 }
-
-const counter = new countTime();
 
 // play 버튼 클릭 시 실행
 function onPlay(){
-    counter.onTime();
+    onTime();
     count.innerHTML = `10`;
     for(i=0; i<10; i++){
         setButImg()*i;
